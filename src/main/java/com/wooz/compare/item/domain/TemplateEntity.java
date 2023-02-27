@@ -14,5 +14,5 @@ import java.util.UUID;
 public class TemplateEntity {
     final UUID id;          // 아이디
     final String name;      // 템플릿 명
-    final List<ComponentEntity> componentEntities;  // 컴포넌트
+    final List<ComponentEntity> components;  // 컴포넌트
 }

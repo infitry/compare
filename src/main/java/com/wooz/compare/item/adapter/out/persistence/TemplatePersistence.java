@@ -1,17 +1,20 @@
 package com.wooz.compare.item.adapter.out.persistence;
 
+import com.wooz.compare.item.application.port.in.GetTemplatesCommand;
+import com.wooz.compare.item.application.port.in.GetTemplatesQuery;
 import com.wooz.compare.item.application.port.out.GetTemplatePort;
 import com.wooz.compare.item.application.port.out.RegisterTemplatePort;
 import com.wooz.compare.item.domain.TemplateEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class TemplatePersistence implements GetTemplatePort, RegisterTemplatePort {
+public class TemplatePersistence implements GetTemplatePort, GetTemplatesQuery, RegisterTemplatePort {
 
     private final TemplateRepository templateRepository;
     private final TemplateMapper templateMapper;
@@ -24,5 +27,10 @@ public class TemplatePersistence implements GetTemplatePort, RegisterTemplatePor
     @Override
     public void registerTemplate(TemplateEntity template) {
         templateRepository.save(templateMapper.toJpaEntity(template));
+    }
+
+    @Override
+    public List<TemplateEntity> getTemplates(GetTemplatesCommand command) {
+        return null;
     }
 }

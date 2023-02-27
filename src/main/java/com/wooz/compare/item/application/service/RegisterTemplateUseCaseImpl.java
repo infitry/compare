@@ -4,6 +4,7 @@ import com.wooz.compare.item.application.port.in.RegisterTemplateCommand;
 import com.wooz.compare.item.application.port.in.RegisterTemplateUseCase;
 import com.wooz.compare.item.application.port.out.RegisterTemplatePort;
 import com.wooz.compare.item.domain.TemplateEntity;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public class RegisterTemplateUseCaseImpl implements RegisterTemplateUseCase {
     private final RegisterTemplatePort registerTemplatePort;
 
@@ -27,7 +28,7 @@ public class RegisterTemplateUseCaseImpl implements RegisterTemplateUseCase {
         return new TemplateEntity(
                 null,
                 registerTemplateCommand.getName(),
-                registerTemplateCommand.getComponentEntity()
+                registerTemplateCommand.getComponents()
         );
     }
 }

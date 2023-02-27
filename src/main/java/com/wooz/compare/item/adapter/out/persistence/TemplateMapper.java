@@ -26,7 +26,7 @@ public class TemplateMapper {
     TemplateJpaEntity toJpaEntity(TemplateEntity templateEntity) {
         return TemplateJpaEntity.createTemplateJpaEntity(
                 templateEntity.getName(),
-                templateEntity.getComponentEntities().stream()
+                templateEntity.getComponents().stream()
                         .map(componentEntity -> ComponentJpaEntity.createComponentJpaEntity(
                                 componentEntity.getOrdering(),
                                 Type.valueOf(componentEntity.getType().name()),

@@ -1,8 +1,7 @@
 package com.wooz.compare.item.adapter.out.persistence;
 
-import com.wooz.compare.item.application.port.in.GetTemplatesCommand;
-import com.wooz.compare.item.application.port.in.GetTemplatesQuery;
 import com.wooz.compare.item.application.port.out.GetTemplatePort;
+import com.wooz.compare.item.application.port.out.GetTemplatesPort;
 import com.wooz.compare.item.application.port.out.RegisterTemplatePort;
 import com.wooz.compare.item.domain.TemplateEntity;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,7 @@ import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
-public class TemplatePersistence implements GetTemplatePort, GetTemplatesQuery, RegisterTemplatePort {
+public class TemplatePersistence implements GetTemplatePort, GetTemplatesPort, RegisterTemplatePort {
 
     private final TemplateRepository templateRepository;
     private final TemplateMapper templateMapper;
@@ -30,7 +29,7 @@ public class TemplatePersistence implements GetTemplatePort, GetTemplatesQuery, 
     }
 
     @Override
-    public List<TemplateEntity> getTemplates(GetTemplatesCommand command) {
+    public List<TemplateEntity> getTemplates(TemplateEntity templateEntity) {
         return null;
     }
 }

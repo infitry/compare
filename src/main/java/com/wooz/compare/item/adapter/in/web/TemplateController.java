@@ -1,4 +1,4 @@
-package com.wooz.compare.item.adapter.in.rest;
+package com.wooz.compare.item.adapter.in.web;
 
 import com.wooz.compare.item.application.port.in.GetTemplateCommand;
 import com.wooz.compare.item.application.port.in.GetTemplateQuery;
@@ -8,10 +8,7 @@ import com.wooz.compare.item.domain.ComponentEntity;
 import com.wooz.compare.item.domain.TemplateEntity;
 import com.wooz.compare.item.domain.code.Type;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +27,7 @@ public class TemplateController {
     }
 
     @PostMapping
-    public void registerTemplate(RegisterTemplateRequest registerTemplateRequest) {
+    public void registerTemplate(@RequestBody RegisterTemplateRequest registerTemplateRequest) {
         registerTemplateUseCase.execute(
                 new RegisterTemplateCommand(
                     registerTemplateRequest.name(),

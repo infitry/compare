@@ -1,4 +1,4 @@
-package com.wooz.compare.item.adapter.in.rest;
+package com.wooz.compare.item.adapter.in.web;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

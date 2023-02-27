@@ -36,7 +36,7 @@ public class TemplateController {
         registerTemplateUseCase.execute(
                 new RegisterTemplateCommand(
                     registerTemplateRequest.name(),
-                    registerTemplateRequest.componentRequests.stream().map( componentRequest ->
+                    registerTemplateRequest.componentRequests().stream().map( componentRequest ->
                             new ComponentEntity(null, null, componentRequest.ordering(), componentRequest.type(), componentRequest.label()))
                             .collect(Collectors.toList())
                 )

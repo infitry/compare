@@ -1,5 +1,5 @@
 package com.wooz.compare.item.domain.code;
 
-public enum Type {
+public enum ComponentType {
     STRING, NUMBER
 }

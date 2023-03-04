@@ -1,5 +1,7 @@
 package com.wooz.compare.item.application.port.in;
 
+import com.wooz.compare.item.domain.TemplateEntity;
+
 public interface RegisterTemplateUseCase {
-    void execute(RegisterTemplateCommand registerTemplateCommand);
+    TemplateEntity execute(RegisterTemplateCommand registerTemplateCommand);
 }

@@ -16,7 +16,7 @@ import java.util.UUID;
 public class TemplateEntity extends SelfValidating<TemplateEntity> {
     final UUID id;          // 아이디
     @NotEmpty
-    @Size(min = 5, max = 50)
+    @Size(min = 1, max = 50)
     final String name;      // 템플릿 명
 
     @NotNull

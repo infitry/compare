@@ -3,7 +3,7 @@ package com.wooz.compare.item.adapter.in.web;
 import com.wooz.compare.item.application.port.in.*;
 import com.wooz.compare.item.domain.ComponentEntity;
 import com.wooz.compare.item.domain.TemplateEntity;
-import com.wooz.compare.item.domain.code.Type;
+import com.wooz.compare.item.domain.code.ComponentType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +37,7 @@ public class TemplateController {
                 new RegisterTemplateCommand(
                     registerTemplateRequest.name(),
                     registerTemplateRequest.componentRequests().stream().map( componentRequest ->
-                            new ComponentEntity(null, null, componentRequest.ordering(), componentRequest.type(), componentRequest.label()))
+                            new ComponentEntity(null, null, componentRequest.ordering(), componentRequest.componentType(), componentRequest.label()))
                             .collect(Collectors.toList())
                 )
         );
@@ -58,7 +58,7 @@ public class TemplateController {
     // 컴포넌트 등록 요청
     public record RegisterComponentRequest(
             int ordering,  // 순서
-            Type type,     // 타입
+            ComponentType componentType,     // 타입
             String label   // 라벨
     ) {}
 }

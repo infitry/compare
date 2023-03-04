@@ -3,6 +3,7 @@ package com.wooz.compare.item.adapter.out.persistence;
 import com.wooz.compare.item.adapter.out.persistence.code.Type;
 import com.wooz.compare.item.domain.ComponentEntity;
 import com.wooz.compare.item.domain.TemplateEntity;
+import com.wooz.compare.item.domain.code.ComponentType;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ public class TemplateMapper {
                                 componentJpaEntity.getId(),
                                 componentJpaEntity.getTemplateJpaEntity().getId(),
                                 componentJpaEntity.getOrdering(),
-                                com.wooz.compare.item.domain.code.Type.valueOf(componentJpaEntity.getType().name()),
+                                ComponentType.valueOf(componentJpaEntity.getType().name()),
                                 componentJpaEntity.getLabel())).collect(Collectors.toList())
         );
     }
@@ -29,7 +30,7 @@ public class TemplateMapper {
                 templateEntity.getComponents().stream()
                         .map(componentEntity -> ComponentJpaEntity.createComponentJpaEntity(
                                 componentEntity.getOrdering(),
-                                Type.valueOf(componentEntity.getType().name()),
+                                Type.valueOf(componentEntity.getComponentType().name()),
                                 componentEntity.getLabel()
                         ))
                         .collect(Collectors.toList())

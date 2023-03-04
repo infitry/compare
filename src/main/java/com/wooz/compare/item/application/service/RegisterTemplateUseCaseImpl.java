@@ -19,8 +19,8 @@ public class RegisterTemplateUseCaseImpl implements RegisterTemplateUseCase {
     private final RegisterTemplatePort registerTemplatePort;
 
     @Override
-    public void execute(final RegisterTemplateCommand registerTemplateCommand) {
-        registerTemplatePort.registerTemplate(CommandToEntity(registerTemplateCommand));
+    public TemplateEntity execute(final RegisterTemplateCommand registerTemplateCommand) {
+        return registerTemplatePort.registerTemplate(CommandToEntity(registerTemplateCommand));
     }
 
     private TemplateEntity CommandToEntity(final RegisterTemplateCommand registerTemplateCommand) {

@@ -24,8 +24,8 @@ public class TemplatePersistence implements GetTemplatePort, GetTemplatesPort, R
     }
 
     @Override
-    public void registerTemplate(TemplateEntity template) {
-        templateRepository.save(templateMapper.toJpaEntity(template));
+    public TemplateEntity registerTemplate(TemplateEntity template) {
+        return templateMapper.toEntity(templateRepository.save(templateMapper.toJpaEntity(template)));
     }
 
     @Override

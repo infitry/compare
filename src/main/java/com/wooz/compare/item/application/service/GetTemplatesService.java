@@ -17,11 +17,11 @@ public class GetTemplatesService implements GetTemplatesQuery {
     private final GetTemplatesPort getTemplatesPort;
 
     @Override
-    public List<TemplateEntity> getTemplates(GetTemplatesCommand command) {
+    public List<TemplateEntity> getTemplates(final GetTemplatesCommand command) {
         return getTemplatesPort.getTemplates(commandToEntity(command));
     }
 
-    private TemplateEntity commandToEntity(GetTemplatesCommand command) {
+    private TemplateEntity commandToEntity(final GetTemplatesCommand command) {
         return new TemplateEntity(command.getTemplateId(), command.getName(), null);
     }
 }

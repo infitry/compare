@@ -19,7 +19,7 @@ public class GetTemplateService implements GetTemplateQuery {
     private final GetTemplatePort getTemplatePort;
 
     @Override
-    public TemplateEntity execute(GetTemplateCommand getTemplateCommand) {
+    public TemplateEntity execute(final GetTemplateCommand getTemplateCommand) {
         return getTemplatePort.getTemplate(getTemplateCommand.getTemplateId());
     }
 }

@@ -19,12 +19,11 @@ public class RegisterTemplateUseCaseImpl implements RegisterTemplateUseCase {
     private final RegisterTemplatePort registerTemplatePort;
 
     @Override
-    public void execute(RegisterTemplateCommand registerTemplateCommand) {
+    public void execute(final RegisterTemplateCommand registerTemplateCommand) {
         registerTemplatePort.registerTemplate(CommandToEntity(registerTemplateCommand));
     }
 
-    /* Command 를 Entity 로 변환한다. */
-    private TemplateEntity CommandToEntity(RegisterTemplateCommand registerTemplateCommand) {
+    private TemplateEntity CommandToEntity(final RegisterTemplateCommand registerTemplateCommand) {
         return new TemplateEntity(
                 null,
                 registerTemplateCommand.getName(),
